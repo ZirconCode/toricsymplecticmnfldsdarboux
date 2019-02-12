@@ -1,0 +1,205 @@
+\input{header.tex}
+\begin{document}
+
+\title{Toric Symplectic Manifolds}
+\author{Simon Gr\"uning}
+\address[Simon Gr\"uning]{University of Zurich, R\"{a}mistrasse 71, 8006 Zurich}
+\email[Simon Gr\"uning]{\href{mailto:simon.gruening@uzh.ch}{simon.gruening@uzh.ch}}
+
+
+\maketitle
+
+\section*{(Darboux Theorem)}
+
+
+\clearpage
+
+(!) We follow closely the exposition of Yannis gathered of material from Lee and Salomon's books. We take inspiration from Anna's stuff.
+
+
+
+\section{Prerequisites}
+
+\begin{remark}
+Must be even dimensional
+
+All manifolds are smooth as per anna's conventions
+
+chart centered on x means $\phi(x) = 0$.
+
+F diffeomorphism is linear?
+
+precomposition definition of $F^*$
+
+
+\end{remark}
+
+\begin{definition}[Tubular Neighbourhood]
+(! ref lee)
+
+\end{definition}
+
+\begin{proposition}[Fisherman's Formula]
+(!ref lee)
+Fix a manifold $M$. If $X : J \prod M \to TM$ is a time-dependent vector field with time-dependent flow $\Psi: \mathcal{D} \to M$ then for any $\omega \in \Omega^k(M)$, $(t_1,t_0,x) \in \mathcal{D}$ we have
+\begin{align*}
+\frac{d}{dt} \bigg\vert_{t=t_1} \Psi^*_{t,t_0} \omega = \Psi^*_{t_1,t_0}(\mathcal{L}_{X_{t_1}} \omega)
+\end{align*}
+with $X_{t_1} := X(t_1, \cdot) \in \mathfrak{X}(M)$.
+\end{proposition}
+
+\begin{proposition}[Fisherman's Formula Adapted]
+
+\end{proposition}
+
+\begin{proof}
+todo
+\end{proof}
+
+\begin{theorem}\label{canform}
+Canonical Form theorem
+\end{theorem}
+
+\begin{lemma}\label{auxprop1}
+Let $M$ be a manifold, $x \in M$ with basis $(e_i)$ for $T_x M$. Then there exists a chart $(U, x^1, ... ,x^n)$ centered on $x$ such that for any $i = 1, ... , n$:
+\begin{align*}
+\frac{\partial}{\partial x^i} \bigg\vert_x = e_i
+\end{align*}
+\end{lemma}
+
+\begin{proposition}[Homotopy Formula] (!ref canas).
+Fix $U$, a tubular neighburhood of a submanifold $S$ embedded in $M$. If $\omega \in \Omega^k(U)$ is closed and $i^* \omega = 0$ for some $i : S \hookrightarrow U$, then there exists an $\eta \in \Omega^{k-1}(U)$ with $\omega = d\eta$ and $\forall x \in S: \eta_x = 0$.
+\end{proposition}
+
+\begin{proof}
+todo
+\end{proof}
+
+\section{Moser Trick}
+
+\begin{theorem}
+Moser Trick
+\end{theorem}
+
+
+\begin{theorem}[Moser Isotopy]\label{mosiso}
+(!salomon)
+Fix as $M$ a 2n-dimensional manifold and as $S \subseteq M$ a compact submanifold. If $\omega_0 , \omega_1 \in \Omega^2(M)$ are close and
+\begin{enumerate}
+\item $\forall x \in S: \omega_0|x = \omega_1|x$
+\item $\forall x \in S: \omega_0|x, \omega_1|x$ are nondegenerate.
+\end{enumerate}
+then there exist neighbourhoods $U_0,U_1$ of $S$ in $M$ and a diffeomorphism $F: U_0 \to U_1$ with
+\begin{align*}
+F|_S &= id_S \\
+F^*(\omega_1|_{U_1}) &= \omega_0|_{U_0}.
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+asf
+\end{proof}
+
+\section{Darboux Theorem}
+
+\begin{theorem}[Darboux's Theorem]
+Fix $(M , \omega)$ a 2n-dimensional symplectic manifold, $x \in M$. Then there exists a chart $(U, x^1, ... , x^n, y^1, .... , y^n)$ centered on $x$ such that:
+\begin{align*}
+\omega |_U = \sum^n_{i=1} dx^i \wedge dy^i
+\end{align*}.
+\end{theorem}
+
+\begin{proof}
+The canonical form theorem for symplectic tensors \ref{canform} provides us a basis $(a_1, ... , a_n, b_1, ... , b_n)$ for $T_x M$ such that for its dual basis $(a^1, ... , a^n, b^1, ... , b^n)$ we have
+\begin{align*}
+\omega_x = \sum^n_{i=1} da^i \wedge db^i.
+\end{align*}
+
+By proposition \ref{auxprop1} we further have a chart $(U, \tilde{\varphi})$ centered on $x$ with associated coordinates $({\tilde{x}}^1, ... , {\tilde{x}}^n ,{\tilde{y}}^1, ... , {\tilde{y}}^n)$ such that for $i = 1,..., n$
+\begin{align*}
+\frac{\partial}{\partial \tilde{x}^i} \bigg\vert_x = a_i  \\
+\frac{\partial}{\partial \tilde{y}^i} \bigg\vert_x = b_i 
+\end{align*}
+
+Combining the previous two results and traversing again into the dual basis we have
+\begin{align*}
+\omega_x = \sum^n_{i=1} d\tilde{x}^i|_x \wedge d\tilde{y}^i|_x.
+\end{align*}
+
+Define:
+
+\begin{align*}
+\omega_0 := \omega|_U \\
+\omega_1 := \sum^n_{i=1} d\tilde{x}^i \wedge d\tilde{y}^i.
+\end{align*}
+
+Then $\omega_0 , \omega_1$ are symplectic forms on $U$ (!). 
+
+Application of the Moser isotopy \ref{mosiso} to the compact submanifold ${x} \subseteq U$ given $\omega_0, \omega_1$ provides the existence of neighbourhoods $U_0, U_1$ of $x$ in $U$ and a diffeomorphism $F: U_0 \to U_1$ with
+\begin{align*}
+F(x) = x \\
+F^* \omega_1 = \omega_0.
+\end{align*}
+
+Define now another chart $(U_0,\varphi)$ with $\varphi := \tilde{\varphi}|_{U_1} \circ  F$. By construction (!) the associated coordinates are
+\begin{align*}
+x^i = \tilde{x}^i \circ F \\
+y^i = \tilde{y}^i \circ F.
+\end{align*}
+
+If then follows (!) that $\varphi(x) = \tilde{\varphi}(x) = 0$. The remaining property of our chart $(U_0,\varphi)$ follows by:
+
+\begin{align*}
+\omega|_{U_0} &= \omega_0|_{U_0} \\
+&= F^* (\omega_1|{U_1}) \\
+&= F^* \left( \sum^n_{i=1} d\tilde{x}^i \wedge d\tilde{y}^i \right) \\
+&= \sum^n_{i=1} F^* (d\tilde{x}^i \wedge d\tilde{y}^i) \\
+&= \sum^n_{i=1} F^*(d\tilde{x}^i) \wedge F^*(d\tilde{y}^i) \\
+&= \sum^n_{i=1} d F^*(\tilde{x}^i) \wedge d F^*(\tilde{y}^i) \\
+&= \sum^n_{i=1} d (\tilde{x}^i \circ F) \wedge d ( \tilde{y}^i \circ F) \\
+&= \sum^n_{i=1} dx^i \wedge dy^i.
+\end{align*}
+
+
+
+
+
+
+\end{proof}
+
+\section{Discussion / Applications}
+
+bla
+
+\begin{appendix}
+
+\section{Basics}
+
+\begin{enumerate}
+\item symplectic manifold
+\item einstein summation convention
+\item $T_x M$ et al.
+\item basis of above and dual basis
+\item coordinates associated to chart?
+\item time dependent vector field and flow
+\end{enumerate}
+
+
+\begin{lemma}[refyan E.]
+For a smooth function $F$ from manifolds $M$ to $N$ and $\omega,\eta \in \Omega(N)$ we have
+\begin{align*}
+F^*(\omega \wedge \eta) = F^* \omega \wedge F^* \eta
+\end{align*}
+\end{lemma}
+
+\begin{lemma}[refyan E.203]
+For a smooth function $F$ from manifolds $M$ to $N$ and $\omega \in \Omega(M)$ we have
+\begin{align*}
+F^*(d\omega) = d(F^* \omega).
+\end{align*}
+\end{lemma}
+
+
+\end{appendix}
+
+\end{document}
