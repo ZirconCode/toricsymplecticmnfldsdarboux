@@ -14,7 +14,7 @@
 
 \clearpage
 
-(!) We follow closely the exposition of Yannis gathered of material from Lee and Salomon's books. We take inspiration from Anna's stuff.
+(!) Throghout the seminar notes we follow closely the exposition of Yannis gathered of material from Lee and Salomon's books. We take inspiration from Anna's stuff.
 
 
 
@@ -23,42 +23,62 @@
 \begin{remark}
 Must be even dimensional
 
-All manifolds are smooth as per anna's conventions
+All manifolds are smooth unless noted otherwise as per ana's conventions
 
-chart centered on x means $\phi(x) = 0$.
+chart centered on x means $\varphi(x) = 0$.
 
-F diffeomorphism is linear?
 
 precomposition definition of $F^*$
+$F^*$ diffeomorphism is linear..
 
 
 \end{remark}
 
-\begin{definition}[Tubular Neighbourhood]
+\begin{proposition}[Cartan's Magic Formula]
 (! ref lee)
 
+Fix a manifold $M$, a vector field $X \in \mathfrak{X}(M)$, and an $\omega \in \Omega^k(M)$ for some $k \in \mathbb{N}$. Then
+\begin{align*}
+\mathcal{L}_X \omega = i_X(d \omega) + d(i_X \omega).
+\end{align*}
+\end{proposition}
+
+\begin{theorem}\label{canform}
+Canonical Form theorem
+\end{theorem}
+
+\begin{definition}
+time dependent vector field
+\end{definition}
+
+\begin{definition}
+time dependent flow of X
+\end{definition}
+
+\begin{definition}
+time dependent differential k-form
 \end{definition}
 
 \begin{proposition}[Fisherman's Formula]
 (!ref lee)
-Fix a manifold $M$. If $X : J \prod M \to TM$ is a time-dependent vector field with time-dependent flow $\Psi: \mathcal{D} \to M$ then for any $\omega \in \Omega^k(M)$, $(t_1,t_0,x) \in \mathcal{D}$ we have
+Fix a manifold $M$. If $X : J \times M \to TM$ is a time-dependent vector field with time-dependent flow $\Psi: \mathcal{D} \to M$ then for any $\omega \in \Omega^k(M)$, $(t_1,t_0,x) \in \mathcal{D}$ we have that
 \begin{align*}
-\frac{d}{dt} \bigg\vert_{t=t_1} \Psi^*_{t,t_0} \omega = \Psi^*_{t_1,t_0}(\mathcal{L}_{X_{t_1}} \omega)
+\frac{d}{dt} \bigg\vert_{t=t_1} \Psi^*_{t,t_0} \omega = \Psi^*_{t_1,t_0} \left( \mathcal{L}_{X_{t_1}} \omega \right)
 \end{align*}
 with $X_{t_1} := X(t_1, \cdot) \in \mathfrak{X}(M)$.
 \end{proposition}
 
 \begin{proposition}[Fisherman's Formula Adapted]
-
+Fix a manifold $M$. If $X : J \times M \to TM$ is a time-dependent vector field with time-dependent flow $\Psi: \mathcal{D} \to M$, and further, $\omega : J \times M \to \Lambda^k T^* M$ is a time-dependent differential k-form, then for any $\omega \in \Omega^k(M)$, $(t_1,t_0,x) \in \mathcal{D}$ we have that
+\begin{align*}
+\frac{d}{dt} \bigg\vert_{t=t_1} \Psi^*_{t,t_0} \omega_t = \Psi^*_{t_1,t_0} \left( \mathcal{L}_{X_{t_1}} \omega_{t_1} + \frac{d}{dt} \bigg\vert_{t=t_1} \omega_t \right)
+\end{align*}
+with $X_{t_1} := X(t_1, \cdot) \in \mathfrak{X}(M)$.
 \end{proposition}
 
 \begin{proof}
-todo
+todo chain rule amazing
 \end{proof}
-
-\begin{theorem}\label{canform}
-Canonical Form theorem
-\end{theorem}
 
 \begin{lemma}\label{auxprop1}
 Let $M$ be a manifold, $x \in M$ with basis $(e_i)$ for $T_x M$. Then there exists a chart $(U, x^1, ... ,x^n)$ centered on $x$ such that for any $i = 1, ... , n$:
@@ -67,12 +87,21 @@ Let $M$ be a manifold, $x \in M$ with basis $(e_i)$ for $T_x M$. Then there exis
 \end{align*}
 \end{lemma}
 
+\begin{definition}[Tubular Neighbourhood]
+(! ref lee)
+
+\end{definition}
+
 \begin{proposition}[Homotopy Formula] (!ref canas).
 Fix $U$, a tubular neighburhood of a submanifold $S$ embedded in $M$. If $\omega \in \Omega^k(U)$ is closed and $i^* \omega = 0$ for some $i : S \hookrightarrow U$, then there exists an $\eta \in \Omega^{k-1}(U)$ with $\omega = d\eta$ and $\forall x \in S: \eta_x = 0$.
 \end{proposition}
 
 \begin{proof}
-todo
+By definition of tubular neighbourhood, we have a continous function $\delta : S \to \mathbb{R}$ with 
+\begin{align*}
+U = exp_S(\{ (x,v) \in N \times S L |v|_g < \delta(x) \})
+\end{align*}
+
 \end{proof}
 
 \section{Moser Trick}
@@ -177,11 +206,14 @@ bla
 
 \begin{enumerate}
 \item symplectic manifold
+\item smooth manifold
 \item einstein summation convention
 \item $T_x M$ et al.
 \item basis of above and dual basis
 \item coordinates associated to chart?
 \item time dependent vector field and flow
+\item time dep differential k-form
+\item interior multiplication $i_X$.
 \end{enumerate}
 
 
