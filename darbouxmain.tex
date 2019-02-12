@@ -92,23 +92,81 @@ Let $M$ be a manifold, $x \in M$ with basis $(e_i)$ for $T_x M$. Then there exis
 
 \end{definition}
 
-\begin{proposition}[Homotopy Formula] (!ref canas).
+\begin{theorem}[Existence of Tubular N] \label{extub}
+ahhh
+\end{theorem}
+
+\begin{proposition}[Homotopy Formula] \label{homoform} (!ref canas).
 Fix $U$, a tubular neighburhood of a submanifold $S$ embedded in $M$. If $\omega \in \Omega^k(U)$ is closed and $i^* \omega = 0$ for some $i : S \hookrightarrow U$, then there exists an $\eta \in \Omega^{k-1}(U)$ with $\omega = d\eta$ and $\forall x \in S: \eta_x = 0$.
 \end{proposition}
 
 \begin{proof}
 By definition of tubular neighbourhood, we have a continous function $\delta : S \to \mathbb{R}$ with 
 \begin{align*}
-U = exp_S(\{ (x,v) \in N \times S L |v|_g < \delta(x) \})
+U = exp_S(\{ (x,v) \in NS : |v|_g < \delta(x) \})
 \end{align*}
+
+..... todo
 
 \end{proof}
 
+\begin{proposition}[Existence of Vector Field] \label{propisom}
+Fix $(M,\omega)$ a symplectic manifold and $\eta \in \Omega^1(M)$. Then there exists a unique vector field $X \in \mathfrak{X}(M)$ such that $i_X \omega = \eta$.
+\end{proposition}
+
 \section{Moser Trick}
 
-\begin{theorem}
-Moser Trick
+\begin{remark}
+Moser was at ETH etc. (!)
+This trick is very useful..
+\end{remark}
+
+\begin{theorem}[Moser Trick]\label{mostr}
+(! ref salamon)
+Fix $M$ a compact manifold. Suppose for some open interval $0 \in J \subseteq \mathbb{R}$ we have a smooth family (!) of symplectic forms $(\omega_t)_{t \in J} \in Omega^2(M)$ such that there exists another smooth family $(\eta_t)_{t \ in K} \in \Omega^1(M)$ with
+\begin{align*}
+\frac{d}{dt} \omega_t = d\eta_t.
+\end{align*}
+Then there exists a family of diffeomorphisms $(\Psi_t)_{t \in J} \in Diff(M)$ with
+\begin{align*}
+\Psi^*_t \omega_t = \omega_0.
+\end{align*}
 \end{theorem}
+
+\begin{proof}
+bla bla bla (!)
+
+note: $\Psi_t := \Psi_{t,0}$ with t0 set as 0 (can translate etc.)
+
+To begin with the end in mind, suppose that
+\begin{align*}
+\frac{d}{dt} \Psi_t = X_t \circ \Psi_t
+\end{align*}
+
+If we would have the $X_t$ and were to induce the flow $\Psi_t$ with the Fundamental Flow theorem (!) we would also receive that
+\begin{align*}
+\Psi_0 = \Psi_0 \circ \Psi_0 = id_M
+\end{align*}
+
+To satisfy $\Psi^*_t \omega_t$ being constant as desired we set:
+\begin{align*}
+0 = \frac{d}{dt} \Psi^*_t \omega_t &= \Psi^*_t \left( \mathcal{L}_{X_t} \omega_t + \frac{d}{dt} \omega_t \right) &fisherman's formula \\
+&= \Psi^*_t \left( i_{X_t}(d\omega_t) + d(i_{X_t}\omega_t)+\frac{d}{dt}\omega_t \right) & cartans \\
+&= \Psi^*_t \left( d(i_{X_t}\omega_t)+\frac{d}{dt}\omega_t \right) & d\omega_t=0 b/c w_t closed \\
+&= \Psi^*_t \left( d(i_{X_t}\omega_t)+d\eta_t  \right) & assumption \\
+\end{align*}
+Since $\Psi^*_t$ is an isomorphism and $d$ is a sheaf morphism we can peel away the layers:
+\begin{align*}
+0 &= \Psi^*_t \left( d(i_{X_t}\omega_t)+d\eta_t  \right) \\
+\Leftrightarrow 0 &= d(i_{X_t}\omega_t)+d\eta_t = d(i_{X_t}\omega_t +\eta_t )\\
+\Leftrightarrow 0 &= i_{X_t}\omega_t +\eta_t
+\end{align*}
+
+We can solve $i_{X_t}\omega_t = -\eta_t$ for $X_t$ using Proposition \ref{propisom}.  With the Flow Theorem (!) we can now integrate the $X_t$ resulting in the flows $\Psi_t$ such that $\Psi^*_t \omega_t$ is constant, and since $\Psi^*_0 = id$ we have $\Psi^*_t \omega_t = \omega_0$. 
+
+(!) note smoothly from t -> allows applic of flo thm.
+\end{proof}
+
 
 
 \begin{theorem}[Moser Isotopy]\label{mosiso}
@@ -126,7 +184,26 @@ F^*(\omega_1|_{U_1}) &= \omega_0|_{U_0}.
 \end{theorem}
 
 \begin{proof}
-asf
+Let $U$ be a uniform tubular neighbourhood of $S$ in $M$ by Theorem \ref{extub}. By construction $\overline{U}$ is compact. By the Homotopy Formula \ref{homoform} there exists $\eta \in \Omega^{1}(U)$ such that
+\begin{align*}
+\omega_1 - \omega_0 = d\eta.
+\end{align*}
+Further we also have that $\eta$ vanishes on $S$.
+Define for $t \in \mathbb{R}$
+\begin{align*}
+\omega_t := \omega_0 + t(\omega_1 - \omega_0)
+\end{align*}
+By construction $\omega_t$ is closed (!). To assure that $\omega_t$ is non-degenerate, we shrink $U$ to $U_0$, a new neighbourhood of $S$ in $M$. In doing this, note that $\omega_t = \omega_0$ on $S$ per assumption and that we may take the union of open neighbourhoods of the non-degenerate points of $S$ to exceed $S$ as it is closed, and by smoothness retain the non-degenerate property.
+
+We then have that:
+\begin{align*}
+\frac{d}{dt} \omega_t = \omega_1 - \omega_0 = d\eta .
+\end{align*}
+Since $\overline{U_0} \subseteq \overline{U}$ is compact due to being a closed subset of a compact space, we can apply now Moser's Trick \ref{mostr} to get a family of diffeomorphisms $(\Psi_t)_{t \in J}$ with
+\begin{align*}
+\Psi^*_t \omega_t = \omega_0.
+\end{align*}
+Let now $F := \Psi_1$, $U_1 := F(U_0)$. The final property follows from $\eta$ vanishing on $S$ (!).
 \end{proof}
 
 \section{Darboux Theorem}
@@ -206,6 +283,7 @@ bla
 
 \begin{enumerate}
 \item symplectic manifold
+\item symplectic form
 \item smooth manifold
 \item einstein summation convention
 \item $T_x M$ et al.
@@ -214,6 +292,10 @@ bla
 \item time dependent vector field and flow
 \item time dep differential k-form
 \item interior multiplication $i_X$.
+\item exp..
+\item NS
+\item Diff(M)
+\item sheaf morphism
 \end{enumerate}
 
 
