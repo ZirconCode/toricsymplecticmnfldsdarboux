@@ -162,9 +162,9 @@ The proof is complete if we find a map $H: \Omega^k(U) \to \Omega^{k-1}(U)$  wit
 \begin{align*}
 H \circ d + d \circ H = \Psi^*_1 - \Psi^*_0 = id - \iota^*
 \end{align*}
-since it then follows by assumption that
+since it then follows by the assumptions on $\omega$ that
 \begin{align*}
-H \circ d(\omega) + d \circ H(\omega) &= id(\omega) - \iota^*(\omega) \\
+H  d(\omega) + d  H(\omega) &= id(\omega) - \iota^*(\omega) \\
 d(H\omega) &= \omega .
 \end{align*} 
 \underline{Claim:} We can define such a map as:
@@ -179,14 +179,18 @@ X_t := \left( \frac{d}{dt} \Psi_t \right) \circ \Psi^{-1}_t .
 \underline{Proof of Claim:}
 We compute
 \begin{align*}
-H(d\omega) + d(H\omega) &= \int^1_0 \Psi^*_t(i_{X_t}(d\omega)) d(\Psi^*_t(i_{X_t}\omega)) dt &defintion and leipnitz\\
+H(d\omega) + d(H\omega) &= \int^1_0 \Psi^*_t(i_{X_t}(d\omega))+ d(\Psi^*_t(i_{X_t}\omega)) dt &defintion and leipnitz\\
 &= \int^1_0 \Psi^*_t(i_{X_t}(d\omega) + d i_{X_t}\omega) dt & linearity and commutes \\
 &= \int^1_0 \Psi^*_t (\mathcal{L}_{X_t} \omega) dt & cartans \\
-&= \int^1_0 \frac{d}{dt} \Psi^*_t \omega dt & fishermans\\
-&= \Psi^*_1 \omega - \Psi^*_0 \omega &\Psi_t time-dep. flow of X_t
+&= \int^1_0 \frac{d}{dt} \Psi^*_t \omega dt & fishermans (\Psi_t time-dep. flow of X_t)\\
+&= \Psi^*_1 \omega - \Psi^*_0 \omega 
 \end{align*}
-Since we have $\Psi_t(x) = x$ on $x \in S, t \in I$, it follows that $X_t$ vanishes on $S$ and so will $\eta$.
+Since we have $\Psi_t|_S = id_S$ (!) for $t \in I$, with $S$ seen as a subset of $NS$ via the zero section, it follows that $X_t$ vanishes on $S$ and so will $\eta$.
 \end{proof}
+
+\begin{remark}
+(!) this is calles homotopy formula since bla bla... de rahm 
+\end{remark}
 
 \begin{proposition}[Existence of Vector Field] \label{propisom}
 Fix $(M,\omega)$ a symplectic manifold and $\eta \in \Omega^1(M)$. Then there exists a unique vector field $X \in \mathfrak{X}(M)$ such that $i_X \omega = \eta$.
