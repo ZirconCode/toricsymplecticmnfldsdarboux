@@ -44,8 +44,12 @@ Fix a manifold $M$, a vector field $X \in \mathfrak{X}(M)$, and an $\omega \in \
 \end{align*}
 \end{proposition}
 
-\begin{theorem}\label{canform}
-Canonical Form theorem
+\begin{theorem}[Canonical Form Theorem for Symplectic Vector Space] \label{canform} 
+Fix $(V,\omega)$ a symplectic vector space. Then $dimV = 2n$ and there exists a basis $(a_1,...,a_n,b_1, ...,b_n)$ of $V$ such that:
+\begin{align*}
+\omega = \sum^n_{i=1} a^i \wedge b^i
+\end{align*}
+where $(a^1, ... , a^n,b^1, ... ,b^n)$ denotes the dual basis of $(a_1,...,a_n,b_1, ...,b_n)$.
 \end{theorem}
 
 \begin{definition} \label{timvec}
@@ -121,6 +125,11 @@ Let $M$ be a manifold, $x \in M$ with basis $(e_i)$ for $T_x M$. Then there exis
 \end{align*}
 \end{lemma}
 
+\begin{proposition}
+(! ref lee)
+Every smooth manifold admits a Riemannian metric.
+\end{proposition}
+
 \begin{definition}[Tubular Neighbourhood]
 (! ref lee)
 Let $(M,g)$  be a Riemannian manifold, $S \subseteq M$ an embedded submanifold. Denote by $\pi : NS \to S$ the normal bundle of $S$ in $M$. Restrict the exponential map of $M$ as $exp_S : \mathcal{E} \cap NS \to M$ with $\mathcal{E} \subseteq TM$. A neighbourhood $U$ of $S$ in $M$ is called a tubular neighbourhood of $S$ if there exists a positive continuous function $\delta : S \to \mathbb{R}$ such that $U$ is the diffeomorphic image under $exp_S$ of a subset $V \subseteq \mathcal{E} \cap NS$ of the form 
@@ -136,17 +145,47 @@ For every embedded submanifold of a Riemannian manifold $(M,g)$, there exists a 
 \end{theorem}
 
 \begin{proposition}[Homotopy Formula] \label{homoform} (!ref canas).
-Fix $U$, a tubular neighburhood of a submanifold $S$ embedded in $M$. If $\omega \in \Omega^k(U)$ is closed and $i^* \omega = 0$ for some $i : S \hookrightarrow U$, then there exists an $\eta \in \Omega^{k-1}(U)$ with $\omega = d\eta$ and $\forall x \in S: \eta_x = 0$.
+Fix $U$, a tubular neighburhood of a submanifold $S$ embedded in $M$. If $\omega \in \Omega^k(U)$ is closed and $i^* \omega = 0$ for some $i : S \hookrightarrow U$, then there exists an $\eta \in \Omega^{k-1}(U)$ with $\omega = d\eta$. It is possible to ensure that $\forall x \in S: \eta_x = 0$.
 \end{proposition}
 
 \begin{proof}
-By definition of tubular neighbourhood, we have a continous function $\delta : S \to \mathbb{R}$ with 
+By definition of tubular neighbourhood, we have a positive continous function $\delta : S \to \mathbb{R}$ with 
 \begin{align*}
 U = exp_S(\{ (x,v) \in NS : |v|_g < \delta(x) \})
 \end{align*}
-
-..... todo
-
+Fix a $t \in I =[0,1]$. Let $\Psi_t: U \to U$ be defined by
+\begin{align*}
+\Psi_t(exp_S(x,v)) := exp_S(x,tv) .
+\end{align*}
+Since $exp_S$ is injective and we have an smooth inverse $exp_S(x,tv) \mapsto exp_S(x,v)$, $\Psi_t$ is a diffeomorphism for $t>0$.
+The proof is complete if we find a map $H: \Omega^k(U) \to \Omega^{k-1}(U)$  with
+\begin{align*}
+H \circ d + d \circ H = \Psi^*_1 - \Psi^*_0 = id - \iota^*
+\end{align*}
+since it then follows by assumption that
+\begin{align*}
+H \circ d(\omega) + d \circ H(\omega) &= id(\omega) - \iota^*(\omega) \\
+d(H\omega) &= \omega .
+\end{align*} 
+\underline{Claim:} We can define such a map as:
+\begin{align*}
+(H(\omega))_x(v) &:= \int^1_0 (\Psi^*_t(i_{X_t} \omega))_x(v) dt \\
+&= \int^1_0 \omega_{\Psi_t(x)} \left( \frac{d}{dt} \Psi_t(x), D(\Psi_t)_x(v) \right) dt
+\end{align*}
+for $x\in U , v\in T_xU$, and $X_t \in \mathfrak{X}(U)$ given for $t>0$ by
+\begin{align*}
+X_t := \left( \frac{d}{dt} \Psi_t \right) \circ \Psi^{-1}_t .
+\end{align*}
+\underline{Proof of Claim:}
+We compute
+\begin{align*}
+H(d\omega) + d(H\omega) &= \int^1_0 \Psi^*_t(i_{X_t}(d\omega)) d(\Psi^*_t(i_{X_t}\omega)) dt &defintion and leipnitz\\
+&= \int^1_0 \Psi^*_t(i_{X_t}(d\omega) + d i_{X_t}\omega) dt & linearity and commutes \\
+&= \int^1_0 \Psi^*_t (\mathcal{L}_{X_t} \omega) dt & cartans \\
+&= \int^1_0 \frac{d}{dt} \Psi^*_t \omega dt & fishermans\\
+&= \Psi^*_1 \omega - \Psi^*_0 \omega &\Psi_t time-dep. flow of X_t
+\end{align*}
+Since we have $\Psi_t(x) = x$ on $x \in S, t \in I$, it follows that $X_t$ vanishes on $S$ and so will $\eta$.
 \end{proof}
 
 \begin{proposition}[Existence of Vector Field] \label{propisom}
@@ -343,6 +382,9 @@ bla
 \item sheaf morphism
 \item $|\cdot |_g$ riemannian metric
 \item pullback
+\item symplectic vector space
+\item $\iota$ inclusion
+\item derivative D
 \end{enumerate}
 
 
