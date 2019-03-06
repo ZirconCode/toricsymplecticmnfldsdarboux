@@ -81,7 +81,7 @@
       <file>darbouxmain-blx.bib</file>
     </requires>
     <requires type="editable">
-      <file>Bibliography.bib</file>
+      <file>biblio.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>

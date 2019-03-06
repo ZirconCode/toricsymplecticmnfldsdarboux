@@ -1,0 +1,123 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.6 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{ybaehn}{unpublished}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Baehni}{B.}%
+     {Yannis}{Y.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BY1}
+  \strng{fullhash}{BY1}
+  \field{labelalpha}{Bae19}
+  \field{sortinit}{B}
+  \field{note}{Semester Thesis}
+  \field{title}{Mathematical Aspects of Classical Mechanics}
+  \verb{url}
+  \verb https://github.com/TheGeekGreek/mathematical_aspects_of_classical_mecha
+  \verb nics
+  \endverb
+  \field{year}{2019}
+\endentry
+
+\entry{lee1}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Lee}{L.}%
+     {J.M.}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{LJ1}
+  \strng{fullhash}{LJ1}
+  \field{labelalpha}{Lee13}
+  \field{sortinit}{L}
+  \field{subtitle}{second edition edn.}
+  \field{title}{Introduction to Smooth Manifolds}
+  \field{year}{2013}
+\endentry
+
+\entry{lee2}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Lee}{L.}%
+     {J.M.}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{LJ1}
+  \strng{fullhash}{LJ1}
+  \field{labelalpha}{Lee18}
+  \field{sortinit}{L}
+  \field{subtitle}{second edition edn.}
+  \field{title}{Introduction to Riemannian Manifolds}
+  \field{year}{2018}
+\endentry
+
+\entry{salamon}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {McDuff}{M.}%
+     {Salamon~D.}{S.~D.}%
+     {}{}%
+     {D.}{D.}}%
+  }
+  \list{publisher}{1}{%
+    {Oxford University Press}%
+  }
+  \strng{namehash}{MDSD1}
+  \strng{fullhash}{MDSD1}
+  \field{labelalpha}{McD17}
+  \field{sortinit}{M}
+  \field{subtitle}{third edition edn.}
+  \field{title}{Introduction to Symplectic Topology}
+  \field{year}{2017}
+\endentry
+
+\entry{ana}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Silva}{S.}%
+     {A.C.}{A.}%
+     {da}{d.}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{SAd1}
+  \strng{fullhash}{SAd1}
+  \field{labelalpha}{Sil08}
+  \field{sortinit}{S}
+  \field{subtitle}{corrected 2nd printing edn.}
+  \field{title}{Lectures on Symplectic Geometry}
+  \field{year}{2008}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

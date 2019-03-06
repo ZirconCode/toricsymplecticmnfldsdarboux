@@ -1,11 +1,15 @@
+
+ 
+
 \input{header.tex}
 \begin{document}
 
-\title{Toric Symplectic Manifolds}
+\title{Symplectic Toric Manifolds}
 \author{Simon Gr\"uning}
-\address[Simon Gr\"uning]{University of Zurich, R\"{a}mistrasse 71, 8006 Zurich}
-\email[Simon Gr\"uning]{\href{mailto:simon.gruening@uzh.ch}{simon.gruening@uzh.ch}}
+\address[Simon Gr\"uning]{ETH Zürich, Rämistrasse 101, 8092 Zürich}
+\email[Simon Gr\"uning]{\href{mailto:simongr@student.ethz.ch}{simongr@student.ethz.ch}}
 
+\let\Psi\psi
 
 \maketitle
 
@@ -14,37 +18,34 @@
 
 \clearpage
 
-(!) Throghout the seminar notes we follow closely the exposition of Yannis gathered of material from Lee and Salomon's books. We take inspiration from Anna's stuff.
-
-(1) set Psi to psi?
+Throughout these seminar notes we follow closely the exposition of Yannis B\"ahni\footnote{ who was of great help in preparing these notes, thank you} \cite{ybaehn} gathered through material from Lee's \cite{lee1} \cite{lee2} and Salamon's books \cite{salamon}. We take inspiration from Ana Cannas da Silva \cite{ana} and try to follow her conventions, note thus that all manifolds are smooth unless explicitly stated otherwise.
 
 
 \section{Prerequisites}
 
 \begin{remark}
-Must be even dimensional
+%Must be even dimensional
 
-All manifolds are smooth unless explicitly noted otherwise as per ana's conventions
+%All manifolds are smooth unless explicitly noted otherwise as per ana's conventions
 
-chart centered on x means $\varphi(x) = 0$.
+A chart $(U,\varphi)$ is called centered on $x$ when $\varphi(x) = 0$.
 
 
-precomposition definition of $F^*$
-$F^*$ diffeomorphism is linear..
+%precomposition definition of $F^*$
+%$F^*$ diffeomorphism is linear..
 
 
 \end{remark}
 
 \begin{proposition}[Cartan's Magic Formula]
-(! ref lee)
-
+\cite{ybaehn}
 Fix a manifold $M$, a vector field $X \in \mathfrak{X}(M)$, and an $\omega \in \Omega^k(M)$ for some $k \in \mathbb{N}$. Then
 \begin{align*}
 \mathcal{L}_X \omega = i_X(d \omega) + d(i_X \omega).
 \end{align*}
 \end{proposition}
 
-\begin{theorem}[Canonical Form Theorem for Symplectic Vector Space] \label{canform} 
+\begin{theorem}[Canonical Form Theorem for Symplectic Vector Space] \label{canform} \cite{ybaehn}
 Fix $(V,\omega)$ a symplectic vector space. Then $dimV = 2n$ and there exists a basis $(a_1,...,a_n,b_1, ...,b_n)$ of $V$ such that:
 \begin{align*}
 \omega = \sum^n_{i=1} a^i \wedge b^i
@@ -52,15 +53,15 @@ Fix $(V,\omega)$ a symplectic vector space. Then $dimV = 2n$ and there exists a 
 where $(a^1, ... , a^n,b^1, ... ,b^n)$ denotes the dual basis of $(a_1,...,a_n,b_1, ...,b_n)$.
 \end{theorem}
 
-\begin{definition} \label{timvec}
-Fix a manifold $M$, $J \subseteq \mathbb{R}$ an interval. A time-dependent vector field on $M$ is a smooth map $X: J \times M \to TM$ such that $\forall (t,x) \in J \times M: X(t,x) \in T_x M$ (the section property?).
+\begin{definition} \cite{lee1} \label{timvec}
+Fix a manifold $M$, $J \subseteq \mathbb{R}$ an interval. A time-dependent vector field on $M$ is a smooth map $X: J \times M \to TM$ such that $\forall (t,x) \in J \times M: X(t,x) \in T_x M$.
 \end{definition}
 
-\begin{definition}
+\begin{definition} \cite{lee1}
 An integral curve of a time-dependent vector field $X$ is a curve $\gamma \in \mathcal{C}^\infty(J_0,M)$ such that $\gamma '(t) = X(t,\gamma(t))$ for all $t \in J_0$, where $J_0 \subseteq J$ is an interval by notation as in defintion \ref{timvec}.
 \end{definition}
 
-\begin{definition}
+\begin{definition} \cite{lee1}
 Fix a manifold $M$, $J \subseteq \mathbb{R}$ an open interval, and $X : J\times M \to TM$ a time-dependent vector field. We call a time dependent flow of X an open subset $\mathcal{D} \subseteq J \times J \times M$ paired with a map $\Psi \in \mathcal{C}^\infty(\mathcal{D},M)$ such that the following holds for $\mathcal{D}^{(t_0,x)} := \{t\in J: (t,t_0,x) \in \mathcal{D} \}$, $\Psi^{(t_0,x)}(t) := \Psi(t,t_0,x)$, $M_{t_1,t_0} := \{ x \in M:(t_1,t_0,x) \in \mathcal{D} \}$, $\Psi_{t_1,t_0}(x):= \Psi(t_1,t_0,x)$:
 \begin{enumerate}
 \item For any $t_0 \in J, x \in M$, $\mathcal{D}^{(t_0,x)}$ is an open interval such that $t_0 \in \mathcal{D}^{(t_0,x)}$ and $\Psi^{(t_0,x)}(t)$ is the unique maximal integral curve of $X$ with $\Psi^{(t_0,x)}(t_0) = x$.
@@ -73,16 +74,15 @@ x \in M_{t_2,t_0} \land \Psi_{t_2,t_1} \circ \Psi_{t_1,t_0}(x) = \Psi_{t_2, t_0}
 \end{enumerate}
 \end{definition}
 
-\begin{definition}
-time dependent differential k-form
-\end{definition}
+%\begin{definition}
+%time dependent differential k-form
+%\end{definition}
 
-\begin{theorem}[Fundamental Theorem of Time-Dependent Flows] \label{flowthm}
-For any time-dependent vector field $X$, there exists a time-dependend flow of $X$. (! ref lee)
+\begin{theorem}[Fundamental Theorem of Time-Dependent Flows] \cite{lee1} \label{flowthm}
+For any time-dependent vector field $X$, there exists a time-dependend flow of $X$.
 \end{theorem}
 
-\begin{proposition}[Fisherman's Formula]
-(!ref lee)
+\begin{proposition}[Fisherman's Formula] \cite{lee1}
 Fix a manifold $M$. If $X : J \times M \to TM$ is a time-dependent vector field with time-dependent flow $\Psi: \mathcal{D} \to M$ then for any $\omega \in \Omega^k(M)$, $(t_1,t_0,x) \in \mathcal{D}$ we have that
 \begin{align*}
 \frac{d}{dt} \bigg\vert_{t=t_1} \Psi^*_{t,t_0} \omega = \Psi^*_{t_1,t_0} \left( \mathcal{L}_{X_{t_1}} \omega \right)
@@ -90,7 +90,7 @@ Fix a manifold $M$. If $X : J \times M \to TM$ is a time-dependent vector field 
 with $X_{t_1} := X(t_1, \cdot) \in \mathfrak{X}(M)$.
 \end{proposition}
 
-\begin{proposition}[Fisherman's Formula Adapted]
+\begin{proposition}[Fisherman's Formula Adapted] \cite{lee1}
 Fix a manifold $M$. If $X : J \times M \to TM$ is a time-dependent vector field with time-dependent flow $\Psi: \mathcal{D} \to M$, and further, $\omega : J \times M \to \Lambda^k T^* M$ is a time-dependent differential k-form, then for any $\omega \in \Omega^k(M)$, $(t_1,t_0,x) \in \mathcal{D}$ we have that
 \begin{align*}
 \frac{d}{dt} \bigg\vert_{t=t_1} \Psi^*_{t,t_0} \omega_t = \Psi^*_{t_1,t_0} \left( \mathcal{L}_{X_{t_1}} \omega_{t_1} + \frac{d}{dt} \bigg\vert_{t=t_1} \omega_t \right)
@@ -99,7 +99,7 @@ with $X_{t_1} := X(t_1, \cdot) \in \mathfrak{X}(M)$.
 \end{proposition}
 
 \begin{proof}
-For any sufficiently small (!) $\varepsilon > 0$ let
+For any sufficiently small $\varepsilon > 0$ (i.e. such that we remain within $J$) let
 \begin{align*}
 F:(t_1-\varepsilon,t_1+\varepsilon)\times(t_1-\varepsilon,t_1+\varepsilon) \to \Lambda^k T^*M
 \end{align*}
@@ -107,31 +107,29 @@ be defined by
 \begin{align*}
 F(u,v) := \Psi^*_{u,t_0}\omega_v .
 \end{align*}
-(!huh?). We compute
+We compute
 \begin{align*}
-\frac{d}{dt}\bigg\vert_{t=t_1} \Psi^*_{t,t_0} \omega_t &= \frac{d}{dt}\bigg\vert_{t=t_1} F(t,t) & definition \\
-&= \frac{\partial F}{\partial u}(t_1,t_1) + \frac{\partial F}{\partial v} (t_1,t_1) &cahin rule? \\
-&= \frac{d}{du}\bigg\vert_{u=t_1} \Psi^*_{u,t_0} \omega_{t_1} + \frac{d}{dv} \bigg\vert_{v=t_1} \Psi^*_{t_1,t_0} \omega_v &? \\
-&= \Psi^*_{t_1,t_0} (\mathcal{L}_{X_{t_1}} \omega_{t_1}) + \Psi^*_{t_1,t_0} \left( \frac{d}{dv}\bigg\vert_{v=t_1} \omega_v \right) & fisher and commutes since Psi is linear and independent of v \\
-&=  \Psi^*_{t_1,t_0} \left( \mathcal{L}_{X_{t_1}} \omega_{t_1}) +  \frac{d}{dv}\bigg\vert_{v=t_1} \omega_v \right) & linearity? isomorphism?
+\frac{d}{dt}\bigg\vert_{t=t_1} \Psi^*_{t,t_0} \omega_t &= \frac{d}{dt}\bigg\vert_{t=t_1} F(t,t) & \\
+&= \frac{\partial F}{\partial u}(t_1,t_1) + \frac{\partial F}{\partial v} (t_1,t_1) &  \\
+&= \frac{d}{du}\bigg\vert_{u=t_1} \Psi^*_{u,t_0} \omega_{t_1} + \frac{d}{dv} \bigg\vert_{v=t_1} \Psi^*_{t_1,t_0} \omega_v &  \\
+&= \Psi^*_{t_1,t_0} (\mathcal{L}_{X_{t_1}} \omega_{t_1}) + \Psi^*_{t_1,t_0} \left( \frac{d}{dv}\bigg\vert_{v=t_1} \omega_v \right) & \text{fisherman} \\
+&=  \Psi^*_{t_1,t_0} \left( \mathcal{L}_{X_{t_1}} \omega_{t_1}) +  \frac{d}{dv}\bigg\vert_{v=t_1} \omega_v \right) & 
 \end{align*}
 to show the required statement.
 \end{proof}
 
-\begin{lemma}\label{auxprop1}
+\begin{lemma}\label{auxprop1} \cite{ybaehn}
 Let $M$ be a manifold, $x \in M$ with basis $(e_i)$ for $T_x M$. Then there exists a chart $(U, x^1, ... ,x^n)$ centered on $x$ such that for any $i = 1, ... , n$:
 \begin{align*}
 \frac{\partial}{\partial x^i} \bigg\vert_x = e_i
 \end{align*}
 \end{lemma}
 
-\begin{proposition}
-(! ref lee)
+\begin{proposition} \cite{lee1}
 Every smooth manifold admits a Riemannian metric.
 \end{proposition}
 
-\begin{definition}[Tubular Neighbourhood]
-(! ref lee)
+\begin{definition}[Tubular Neighbourhood] \cite{lee2}
 Let $(M,g)$  be a Riemannian manifold, $S \subseteq M$ an embedded submanifold. Denote by $\pi : NS \to S$ the normal bundle of $S$ in $M$. Restrict the exponential map of $M$ as $exp_S : \mathcal{E} \cap NS \to M$ with $\mathcal{E} \subseteq TM$. A neighbourhood $U$ of $S$ in $M$ is called a tubular neighbourhood of $S$ if there exists a positive continuous function $\delta : S \to \mathbb{R}$ such that $U$ is the diffeomorphic image under $exp_S$ of a subset $V \subseteq \mathcal{E} \cap NS$ of the form 
 \begin{align*}
 V = \{ (x,v) \in NS : |v|_g < \delta(x) \} .
@@ -139,13 +137,12 @@ V = \{ (x,v) \in NS : |v|_g < \delta(x) \} .
 We call $U$ a uniform tubular neighbourhood of $S$ if $\delta$ is constant.
 \end{definition}
 
-\begin{theorem}[Existence of Tubular N] \label{extub}
-(! ref lee)
+\begin{theorem}[Existence of Tubular N] \label{extub} \cite{lee2}
 For every embedded submanifold of a Riemannian manifold $(M,g)$, there exists a tubular neighbourhood in $M$. If the submanifold is compact, there exists a uniform tubular neighbourhood.
 \end{theorem}
 
-\begin{proposition}[Homotopy Formula] \label{homoform} (!ref canas).
-Fix $U$, a tubular neighburhood of a submanifold $S$ embedded in $M$. If $\omega \in \Omega^k(U)$ is closed and $i^* \omega = 0$ for some $i : S \hookrightarrow U$, then there exists an $\eta \in \Omega^{k-1}(U)$ with $\omega = d\eta$. It is possible to ensure that $\forall x \in S: \eta_x = 0$.
+\begin{proposition}[Homotopy Formula] \label{homoform} \cite{ana}
+Fix $U$, a tubular neighburhood of a submanifold $S$ embedded in $M$. If $\omega \in \Omega^k(U)$ is closed and $\iota^* \omega = 0$ for some $\iota : S \hookrightarrow U$, then there exists an $\eta \in \Omega^{k-1}(U)$ with $\omega = d\eta$. It is possible to ensure that $\forall x \in S: \eta_x = 0$.
 \end{proposition}
 
 \begin{proof}
@@ -179,33 +176,31 @@ X_t := \left( \frac{d}{dt} \Psi_t \right) \circ \Psi^{-1}_t .
 \underline{Proof of Claim:}
 We compute
 \begin{align*}
-H(d\omega) + d(H\omega) &= \int^1_0 \Psi^*_t(i_{X_t}(d\omega))+ d(\Psi^*_t(i_{X_t}\omega)) dt &defintion and leipnitz\\
-&= \int^1_0 \Psi^*_t(i_{X_t}(d\omega) + d i_{X_t}\omega) dt & linearity and commutes \\
-&= \int^1_0 \Psi^*_t (\mathcal{L}_{X_t} \omega) dt & cartans \\
-&= \int^1_0 \frac{d}{dt} \Psi^*_t \omega dt & fishermans (\Psi_t time-dep. flow of X_t)\\
+H(d\omega) + d(H\omega) &= \int^1_0 \Psi^*_t(i_{X_t}(d\omega))+ d(\Psi^*_t(i_{X_t}\omega)) dt & \\
+&= \int^1_0 \Psi^*_t(i_{X_t}(d\omega) + d i_{X_t}\omega) dt &  \\
+&= \int^1_0 \Psi^*_t (\mathcal{L}_{X_t} \omega) dt & \text{cartan} \\
+&= \int^1_0 \frac{d}{dt} \Psi^*_t \omega dt & \text{fisherman}\\
 &= \Psi^*_1 \omega - \Psi^*_0 \omega 
 \end{align*}
-Since we have $\Psi_t|_S = id_S$ (!) for $t \in I$, with $S$ seen as a subset of $NS$ via the zero section, it follows that $X_t$ vanishes on $S$ and so will $\eta$.
+Since we have $\Psi_t|_S = id_S$ for $t \in I$, with $S$ seen as a subset of $NS$ via the zero section, it follows that $X_t$ vanishes on $S$ and so will $\eta$.
 \end{proof}
 
-\begin{remark}
-(!) this is calles homotopy formula since bla bla... de rahm 
-\end{remark}
+%\begin{remark}
+%(!) this is calles homotopy formula since bla bla... de rahm 
+%\end{remark}
 
-\begin{proposition}[Existence of Vector Field] \label{propisom}
+\begin{proposition}[Existence of Vector Field] \label{propisom} \cite{ybaehn}
 Fix $(M,\omega)$ a symplectic manifold and $\eta \in \Omega^1(M)$. Then there exists a unique vector field $X \in \mathfrak{X}(M)$ such that $i_X \omega = \eta$.
 \end{proposition}
 
 \section{Moser Trick}
 
 \begin{remark}
-Moser was at ETH etc. (!)
-This trick is very useful..
+See \url{https://en.wikipedia.org/wiki/J%C3%BCrgen_Moser} for history.
 \end{remark}
 
-\begin{theorem}[Moser Trick]\label{mostr}
-(! ref salamon)
-Fix $M$ a compact manifold. Suppose for some open interval $0 \in J \subseteq \mathbb{R}$ we have a smooth family (!) of symplectic forms $(\omega_t)_{t \in J} \in Omega^2(M)$ such that there exists another smooth family $(\eta_t)_{t \ in K} \in \Omega^1(M)$ with
+\begin{theorem}[Moser Trick]\label{mostr} \cite{salamon}
+Fix $M$ a compact manifold. Suppose for some open interval $0 \in J \subseteq \mathbb{R}$ we have a smooth family of symplectic forms $(\omega_t)_{t \in J} \in \Omega^2(M)$ such that there exists another smooth family $(\eta_t)_{t \ in K} \in \Omega^1(M)$ with
 \begin{align*}
 \frac{d}{dt} \omega_t = d\eta_t.
 \end{align*}
@@ -216,26 +211,24 @@ Then there exists a family of diffeomorphisms $(\Psi_t)_{t \in J} \in Diff(M)$ w
 \end{theorem}
 
 \begin{proof}
-bla bla bla (!)
-
-note: $\Psi_t := \Psi_{t,0}$ with t0 set as 0 (can translate etc.)
+The Moser trick is to see the $\Psi_t$ as time-dependent flows induced by some $X_t$ time-dependent vector fields. Note that here we use the convention $\Psi_t := \Psi_{t,0}$ where $t_0$ is fixed as $0$.
 
 To begin with the end in mind, suppose that
 \begin{align*}
 \frac{d}{dt} \Psi_t = X_t \circ \Psi_t
 \end{align*}
 
-If we would have the $X_t$ and were to induce the flow $\Psi_t$ with the Fundamental Flow theorem (!) we would also receive that
+If we would have the $X_t$ and were to induce the flow $\Psi_t$ with the Fundamental Flow theorem we would also receive that
 \begin{align*}
 \Psi_0 = \Psi_0 \circ \Psi_0 = id_M
 \end{align*}
 
 To satisfy $\Psi^*_t \omega_t$ being constant as desired we set:
 \begin{align*}
-0 = \frac{d}{dt} \Psi^*_t \omega_t &= \Psi^*_t \left( \mathcal{L}_{X_t} \omega_t + \frac{d}{dt} \omega_t \right) &fisherman's formula \\
-&= \Psi^*_t \left( i_{X_t}(d\omega_t) + d(i_{X_t}\omega_t)+\frac{d}{dt}\omega_t \right) & cartans \\
-&= \Psi^*_t \left( d(i_{X_t}\omega_t)+\frac{d}{dt}\omega_t \right) & d\omega_t=0 b/c w_t closed \\
-&= \Psi^*_t \left( d(i_{X_t}\omega_t)+d\eta_t  \right) & assumption \\
+0 = \frac{d}{dt} \Psi^*_t \omega_t &= \Psi^*_t \left( \mathcal{L}_{X_t} \omega_t + \frac{d}{dt} \omega_t \right) &\text{fisherman}\\
+&= \Psi^*_t \left( i_{X_t}(d\omega_t) + d(i_{X_t}\omega_t)+\frac{d}{dt}\omega_t \right) & \text{cartan} \\
+&= \Psi^*_t \left( d(i_{X_t}\omega_t)+\frac{d}{dt}\omega_t \right) & d\omega_t=0 \text{ since closed}\\
+&= \Psi^*_t \left( d(i_{X_t}\omega_t)+d\eta_t  \right) & \text{assumption} \\
 \end{align*}
 Since $\Psi^*_t$ is an isomorphism and $d$ is a sheaf morphism we can peel away the layers:
 \begin{align*}
@@ -244,15 +237,14 @@ Since $\Psi^*_t$ is an isomorphism and $d$ is a sheaf morphism we can peel away 
 \Leftrightarrow 0 &= i_{X_t}\omega_t +\eta_t
 \end{align*}
 
-We can solve $i_{X_t}\omega_t = -\eta_t$ for $X_t$ using Proposition \ref{propisom}.  With the Flow Theorem (!) we can now integrate the $X_t$ resulting in the flows $\Psi_t$ such that $\Psi^*_t \omega_t$ is constant, and since $\Psi^*_0 = id$ we have $\Psi^*_t \omega_t = \omega_0$. 
+We can solve $i_{X_t}\omega_t = -\eta_t$ for $X_t$ explicitly with $X_t = -\Omega^{-1}_t(\eta_t)$ where $\Omega_t$ is the tangent-cotangent bundle isomorphism.  With the Fundamental theorem of time-dependent Flow we can now integrate the $X_t$ resulting in the flows $\Psi_t$ such that $\Psi^*_t \omega_t$ is constant, and since $\Psi^*_0 = id$ we have $\Psi^*_t \omega_t = \omega_0$. 
 
-(!) note smoothly from t -> allows applic of flo thm.
+%(!) note smoothly from t -> allows applic of flo thm.
 \end{proof}
 
 
 
-\begin{theorem}[Moser Isotopy]\label{mosiso}
-(!salomon)
+\begin{theorem}[Moser Isotopy]\label{mosiso} \cite{salamon}
 Fix as $M$ a 2n-dimensional manifold and as $S \subseteq M$ a compact submanifold. If $\omega_0 , \omega_1 \in \Omega^2(M)$ are close and
 \begin{enumerate}
 \item $\forall x \in S: \omega_0|x = \omega_1|x$
@@ -266,16 +258,16 @@ F^*(\omega_1|_{U_1}) &= \omega_0|_{U_0}.
 \end{theorem}
 
 \begin{proof}
-Let $U$ be a uniform tubular neighbourhood of $S$ in $M$ by Theorem \ref{extub}. By construction $\overline{U}$ is compact. By the Homotopy Formula \ref{homoform} there exists $\eta \in \Omega^{1}(U)$ such that
+Let $U$ be a uniform tubular neighbourhood of $S$ in $M$ by the Theorem on the Existence of Tubular Neighbourhoods. By construction $\overline{U}$ is compact, hence the uniform nature. By the Homotopy Formula \ref{homoform} there exists $\eta \in \Omega^{1}(U)$ such that
 \begin{align*}
 \omega_1 - \omega_0 = d\eta.
 \end{align*}
-Further we also have that $\eta$ vanishes on $S$.
+Further we can ensure in the application of the Homotopy Formula that $\eta$ vanishes on $S$.
 Define for $t \in \mathbb{R}$
 \begin{align*}
 \omega_t := \omega_0 + t(\omega_1 - \omega_0)
 \end{align*}
-By construction $\omega_t$ is closed (!). To assure that $\omega_t$ is non-degenerate, we shrink $U$ to $U_0$, a new neighbourhood of $S$ in $M$. In doing this, note that $\omega_t = \omega_0$ on $S$ per assumption and that we may take the union of open neighbourhoods of the non-degenerate points of $S$ to exceed $S$ as it is closed, and by smoothness retain the non-degenerate property.
+By construction $\omega_t$ is closed. To assure that $\omega_t$ is non-degenerate, we shrink $U$ to $U_0$, a new neighbourhood of $S$ in $M$. In doing this, note that $\omega_t = \omega_0$ on $S$ per assumption and that we may take the union of open neighbourhoods of the non-degenerate points of $S$ to exceed $S$ as it is closed, and by smoothness retain the non-degenerate property.
 
 We then have that:
 \begin{align*}
@@ -285,12 +277,12 @@ Since $\overline{U_0} \subseteq \overline{U}$ is compact due to being a closed s
 \begin{align*}
 \Psi^*_t \omega_t = \omega_0.
 \end{align*}
-Let now $F := \Psi_1$, $U_1 := F(U_0)$. The final property follows from $\eta$ vanishing on $S$ (!).
+Let now $F := \Psi_1$, $U_1 := F(U_0)$. The final property follows from $\eta$ vanishing on $S$.
 \end{proof}
 
 \section{Darboux Theorem}
 
-\begin{theorem}[Darboux's Theorem]
+\begin{theorem}[Darboux's Theorem] \cite{lee1}
 Fix $(M , \omega)$ a 2n-dimensional symplectic manifold, $x \in M$. Then there exists a chart $(U, x^1, ... , x^n, y^1, .... , y^n)$ centered on $x$ such that:
 \begin{align*}
 \omega |_U = \sum^n_{i=1} dx^i \wedge dy^i
@@ -321,21 +313,21 @@ Define:
 \omega_1 := \sum^n_{i=1} d\tilde{x}^i \wedge d\tilde{y}^i.
 \end{align*}
 
-Then $\omega_0 , \omega_1$ are symplectic forms on $U$ (!). 
+Then $\omega_0 , \omega_1$ are symplectic forms on $U$. 
 
-Application of the Moser isotopy \ref{mosiso} to the compact submanifold ${x} \subseteq U$ given $\omega_0, \omega_1$ provides the existence of neighbourhoods $U_0, U_1$ of $x$ in $U$ and a diffeomorphism $F: U_0 \to U_1$ with
+Application of the Moser isotopy \ref{mosiso} to the compact submanifold $\{x\} \subseteq U$ given $\omega_0, \omega_1$ provides the existence of neighbourhoods $U_0, U_1$ of $\{x\}$ in $U$ and a diffeomorphism $F: U_0 \to U_1$ with
 \begin{align*}
 F(x) = x \\
 F^* \omega_1 = \omega_0.
 \end{align*}
 
-Define now another chart $(U_0,\varphi)$ with $\varphi := \tilde{\varphi}|_{U_1} \circ  F$. By construction (!) the associated coordinates are
+Define now another chart $(U_0,\varphi)$ with $\varphi := \tilde{\varphi}|_{U_1} \circ  F$. By construction the associated coordinates are
 \begin{align*}
 x^i = \tilde{x}^i \circ F \\
 y^i = \tilde{y}^i \circ F.
 \end{align*}
 
-If then follows (!) that $\varphi(x) = \tilde{\varphi}(x) = 0$. The remaining property of our chart $(U_0,\varphi)$ follows by:
+If then follows that $\varphi(x) = \tilde{\varphi}(x) = 0$, or in other words, the chart remains centered. The remaining property of our chart $(U_0,\varphi)$ follows by:
 
 \begin{align*}
 \omega|_{U_0} &= \omega_0|_{U_0} \\
@@ -356,50 +348,52 @@ If then follows (!) that $\varphi(x) = \tilde{\varphi}(x) = 0$. The remaining pr
 \end{proof}
 
 \begin{remark}
-This thm allows us to locally proove, invariant, bla bla
+This theorem allows us to examine the local nature of symplectic manifolds and discover that they are always similar in nature in this regard.
 \end{remark}
 
-\section{Discussion / Applications}
+%\section{Discussion / Applications}
 
-bla
+%bla
+
+\clearpage
 
 \begin{appendix}
 
-\section{Basics}
+\section{Auxiliary}
 
-\begin{enumerate}
-\item symplectic manifold
-\item symplectic form
-\item riemanian manifold
-\item embedded submanifold
-\item smooth manifold
-\item einstein summation convention
-\item $T_x M$ et al.
-\item basis of above and dual basis
-\item coordinates associated to chart?
-\item time dependent vector field and flow
-\item time dep differential k-form
-\item interior multiplication $i_X$.
-\item exp..
-\item NS
-\item Diff(M)
-\item sheaf morphism
-\item $|\cdot |_g$ riemannian metric
-\item pullback
-\item symplectic vector space
-\item $\iota$ inclusion
-\item derivative D
-\end{enumerate}
+%\begin{enumerate}
+%\item symplectic manifold
+%\item symplectic form
+%\item riemanian manifold
+%\item embedded submanifold
+%\item smooth manifold
+%\item einstein summation convention
+%\item $T_x M$ et al.
+%\item basis of above and dual basis
+%\item coordinates associated to chart?
+%\item time dependent vector field and flow
+%\item time dep differential k-form
+%\item interior multiplication $i_X$.
+%\item exp..
+%\item NS
+%\item Diff(M)
+%\item sheaf morphism
+%\item $|\cdot |_g$ riemannian metric
+%\item pullback
+%\item symplectic vector space
+%\item $\iota$ inclusion
+%\item derivative D
+%\end{enumerate}
 
 
-\begin{lemma}[refyan E.]
+\begin{lemma}\cite{ybaehn}
 For a smooth function $F$ from manifolds $M$ to $N$ and $\omega,\eta \in \Omega(N)$ we have
 \begin{align*}
 F^*(\omega \wedge \eta) = F^* \omega \wedge F^* \eta
 \end{align*}
 \end{lemma}
 
-\begin{lemma}[refyan E.203]
+\begin{lemma}\cite{ybaehn}
 For a smooth function $F$ from manifolds $M$ to $N$ and $\omega \in \Omega(M)$ we have
 \begin{align*}
 F^*(d\omega) = d(F^* \omega).
@@ -408,5 +402,14 @@ F^*(d\omega) = d(F^* \omega).
 
 
 \end{appendix}
+
+%\clearpage
+\vspace{8cm}
+
+%\bibliographystyle{IEEEabrv,publishers,confs-jrnls,biblio} %IEEEtran
+%\bibliography{IEEEabrv,publishers,confs-jrnls,biblio} % TODO
+%\bibliography{biblio}
+%\printbibliography
+\printbibliography
 
 \end{document}
